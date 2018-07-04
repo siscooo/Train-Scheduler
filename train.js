@@ -11,7 +11,8 @@ firebase.initializeApp(config);
 var trainData = firebase.database();
 
 //Makes the button collect the data//
-$("addTrainBtn").on("click", function () {
+$("#addTrainBtn").on("click", function (e) {
+    e.preventDefault();
     var trainName = $("#trainNameInput").val().trim();
     var destination = $("#destinationInput").val().trim();
     var firstTrain = moment($("#firstTrainInput").val().trim(), "HH:mm").subtract(10, "years").format("X");
@@ -35,7 +36,7 @@ $("addTrainBtn").on("click", function () {
     $("#firstTrainInput").val("");
     $("#frequencyInput").val("");
 
-    return false;
+    return false
 })
 
 //retrieves data from firebase//
